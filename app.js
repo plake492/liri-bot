@@ -1,3 +1,4 @@
+// eliminate the need for - in between the first two words
 const selection = process.argv.slice(2,4).join(" ");
 const input = process.argv.slice(4).join(" ");
 
@@ -29,8 +30,6 @@ switch (selection){
     //     setUp();
     //     break; 
 }
-
-
 
 
 // function setUp() {
@@ -249,24 +248,15 @@ function clearFile () {
 }
 // -----------------------------DELETE TXT FILE-----------------------------//
 
+// -----------------------------READTXT FILE-----------------------------//
 function readFile() {
     const fs = require("fs");
 
     fs.readFile("user-input.txt", "utf8", function(error, data) {
-    
       if (error) {
         return console.log(error);
       }
-        
-      var dataArr = data.split(",");
-    
-      console.log(dataArr);
-    
-      // for (let i = 0; i < dataArr.length; i++) {
+      const dataArr = data.split(",");
       console.log(dataArr.join('\r\n'));
-      
-    
     });
-    
-
-}
+}// -----------------------------READTXT FILE-----------------------------//
