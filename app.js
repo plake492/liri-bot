@@ -13,6 +13,7 @@ switch (selection){
      
     case "spotify-this":
         spotifyThis();
+        addInput();
         break;
      
 }
@@ -32,16 +33,41 @@ function addInput() {
 } // -----------------------------ADD TO TXT-----------------------------//
 
 
+
+
+// -----------------------------SPOTIFY-----------------------------//
+
+function spotifyThis() {
+    require("dotenv").config();
+    const keys = require("./keys.js");
+    var Spotify = require('node-spotify-api');
+    const spotify = new Spotify(keys.spotify);
+ 
+    spotify.search({ type: 'track', query: 'crash into me' }, function(err, data) {
+        if (err) {
+          return console.log('Error occurred: ' + err);
+        }
+
+    for (let i = 0; i < 3; i ++){
+        console.log(data.tracks.items[i]); 
+    }    
+       
+    // console.log(data.tracks.items); 
+    });
+
+}// -----------------------------SPOTIFY-----------------------------//
+
+
+
+
 // -----------------------------OMDB-----------------------------//
 function movieThis () {
-   const axios = require("axios");
-
-   const movieName = process.argv.slice(3).join('+');
-
-   const queryUrl = `http://www.omdbapi.com/?t="${movieName}&y=&plot=short&apikey=trilogy`;
+    const axios = require("axios");
+    const movieName = process.argv.slice(3).join('+');
+    const queryUrl = `http://www.omdbapi.com/?t="${movieName}&y=&plot=short&apikey=trilogy`;
+    
     axios.get(queryUrl).then(
     function(response) {
-
         console.log("\n" +response.data.Title)
         console.log("Released in: " + response.data.Year)
         console.log("IMDB Ratig: " + response.data.Ratings[0].Value)
@@ -50,7 +76,6 @@ function movieThis () {
         console.log("Language : " + response.data.Language)
         console.log("\nPlot: " + response.data.Plot + "\n")
         console.log("Actors: " + response.data.Actors  + "\n")
-
     })
     .catch(function(error) {
         if (error.response) {
@@ -69,26 +94,24 @@ function movieThis () {
     });
 } // -----------------------------OMDB-----------------------------//
 
+
 // -----------------------------BANDS IN TOWN-----------------------------//
 function concertThis() {
     const axios = require("axios");
     const moment = require('moment');
-
     const artist = process.argv.slice(3).join(' ');
-
     const queryUrl = `https://rest.bandsintown.com/artists/${artist}/events?app_id=codingbootcamp`;
+    
     axios.get(queryUrl).then(
     function(response) {
-
         console.log("\n" + artist + ":")
         console.log("--------------------------")
+        //------------------- LOOP THROUGH THE RESPONCES -------------------//
         for (let i = 0; i < response.data.length; i ++){
             console.log("\nVeune: " + response.data[i].venue.name)
             console.log("Location: " + response.data[i].venue.city + ", " + response.data[i].venue.country)
             console.log("Date & Time: " + moment(response.data[i].datetime).format("MM/DD/YYYY hh:mm:a") + "\n")
-
         }
-
     })
     .catch(function(error) {
         if (error.response) {
