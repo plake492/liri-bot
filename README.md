@@ -1,1 +1,2 @@
-### LIRI Node.js Application
+### LIRI Node.js Application 
+![Robot](document-media/ROBOT.jpeg)
