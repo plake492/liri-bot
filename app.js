@@ -34,30 +34,31 @@ function addInput() {
 
 
 
-
 // -----------------------------SPOTIFY-----------------------------//
-
 function spotifyThis() {
     require("dotenv").config();
     const keys = require("./keys.js");
     var Spotify = require('node-spotify-api');
     const spotify = new Spotify(keys.spotify);
+    const song = process.argv.slice(3).join(" ")
  
-    spotify.search({ type: 'track', query: 'crash into me' }, function(err, data) {
+    spotify.search({ type: 'track', query: song }, function(err, data) {
         if (err) {
           return console.log('Error occurred: ' + err);
         }
+        console.log("--------------------------");
+        console.log("\nTop 3 results for " + song + "\n");
+        console.log("--------------------------");
 
-    for (let i = 0; i < 3; i ++){
-        console.log(data.tracks.items[i]); 
-    }    
-       
-    // console.log(data.tracks.items); 
+        for (let i = 0; i < 3; i ++){
+            console.log("\nArtist: " + data.tracks.items[i].artists[0].name);
+            console.log("Song Name: " +data.tracks.items[i].name);
+            console.log("Album: " + data.tracks.items[i].album.name);
+            console.log("Song Preview : " +data.tracks.items[i].preview_url + "\n"); 
+        }
     });
 
-}// -----------------------------SPOTIFY-----------------------------//
-
-
+} // -----------------------------SPOTIFY-----------------------------//
 
 
 // -----------------------------OMDB-----------------------------//
