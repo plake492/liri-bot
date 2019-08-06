@@ -21,6 +21,8 @@ Additionally, we can read or erase all of our previous search queries with the f
 
 >  ##### Please note: *"movie-this", "concert-this", and "spotify-this"* will not work. The "-" is not needed and will produce and error 
 
+### Here is a video I've made to show LIRI in use: [DEMO VIDEO](https://drive.google.com/file/d/1g-CyQMwLJo-iQRhCuts2fL_f2lYiEFI5/view)
+
 <br>
 <hr>
 
