@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-{concert this: the national}, {movie this: up}, {concert this: u2}, {spotify this: skinny love}, {spotify this: mutemath}, 
-=======
-{concert this: bon iver}, {concert this: coldplay}, {concert this: the national}, {concert this: ben howard}, {concert this: nils frahm}, {movie this: blade runner}, {movie this: bourn identity}, {movie this: shawshank redemption}, {movie this: good will hunting}, {spotify this: the whole univers wants to be touched}, {spotify this: the spotlight}, {spotify this: spotlight}, {spotify this: monument}, {spotify this: stall out}, {spotify this: I love coding in node.js}, 
->>>>>>> 74c574048e9167dec342bec8ec02cac9a2352a6e
+{Song: skinny love}, {Song: gog}, {Movie: sadf}, {Song: sdfgfgf}, {Song: f}, {Song: sdfgsdfgdf}, 
