@@ -1,5 +1,6 @@
 const inquirer = require("inquirer");
 
+// Start the program, this allows the user name prompt to appear only at the start of the application.
 function start() {
     inquirer
     .prompt([
@@ -22,7 +23,7 @@ function start() {
         {
             type: "list",
             message: "\nWhat would you like me to do?",
-            choices: ["Movie Info? ","Concert Info? ", "Song Info? ", "Read Search History? ", "Delete Search History? "],
+            choices: ["Search Movie Info? ","Search Concert Info? ", "Search Song Info? ", "Read Search History? ", "Delete Search History? "],
             name: "query"
         },
     ]
@@ -66,7 +67,7 @@ function start() {
         .prompt([
             {
                 type: "password",
-                message: "Enter Password",
+                message: "Enter Admin Password",
                 mask: '*',
                 name: "password",
             }
@@ -85,22 +86,22 @@ function start() {
         }
     }
 
-
+    // runLIRI allows the user to search for other info without having to restart the app
     function runLIRI () {
         inquirer
         .prompt(question1)
         .then(({query}) => {
 
             switch (query){
-                case "Movie Info? ":
+                case "Search Movie Info? ":
                     movieThis();
                     break;
             
-                case "Concert Info? ":
+                case "Search Concert Info? ":
                     concertThis();
                     break; 
                 
-                case "Song Info? ":
+                case "Search Song Info? ":
                     spotifyThis();
                     break; 
             
@@ -116,7 +117,7 @@ function start() {
             // -----------------------------ADD TO TXT-----------------------------//
             function addInput(input) {
                 const fs = require("fs");
-                fs.appendFile("user-input.txt", "{" + query.split(" ").shift() + ": " + input + "}, ", function(err) {
+                fs.appendFile("user-input.txt", "{" + query.split(" ").shift() + ": " + input + "},", function(err) {
                     if (err) {
                         console.log(err);
                     }
@@ -158,7 +159,6 @@ function start() {
 
                 })
             } // -----------------------------SPOTIFY-----------------------------//
-
             // -----------------------------SPOTIFY-ERROR-----------------------------//
             function spotifyThisErr() {
                 require("dotenv").config();
@@ -249,6 +249,7 @@ function start() {
                         console.log("\n" + artist + ":")
                         //------------------- LOOP THROUGH THE RESPONCES -------------------//
                         for (let i = 0; i < response.data.length; i ++){
+                            
                             let location = response.data[i].venue.city + ", " + response.data[i].venue.country
                             // -----------------------------WEATHER FORCAST-----------------------------//
                             var weather = require("weather-js");
@@ -276,8 +277,8 @@ function start() {
                             
                         }
                         console.log("Number of Results: " + response.data.length)
-                        confrim()
-                        // ********************** NEED TO FIX CONFIRM() LOCATION ******************************//
+                        confrim()  // ********************** NEED TO FIX CONFIRM() LOCATION ******************************//
+
                     })
                     
                     .catch(function(error) {
@@ -320,6 +321,7 @@ function start() {
 
         })
     }
+    
     // -----------------------------DELETE TXT FILE-----------------------------//
     function clearFile() {
 
@@ -348,6 +350,3 @@ function start() {
 }
 
 start()
-
-     
-
