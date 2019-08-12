@@ -19,7 +19,7 @@ Additionally, we can read or erase all of our previous search queries
 
 >  ##### Please note: Orginally, LIRI used comand line prompts such as, "movie-this", "concert-this", and "spotify-this", but I choose to use *[Inquirer](https://www.npmjs.com/package/inquirer)* to create a more simple and enjoyable user experiance through prompts
 
-### Here is a video I've made to show LIRI in use: [DEMO VIDEO]()
+### Here is a video I've made to show LIRI in use: [DEMO VIDEO](https://drive.google.com/file/d/1ToDnNhYWVfoOOFH527w6H2aQ3koZbBf-/view)
 
 <br>
 <hr>
@@ -51,7 +51,7 @@ After executing a search, LIRI, will ask the user if they wish to perfomrm any a
 <hr>
 
 ### **OMDB**
-
+`
 Selecting the "search movie info" command, LIRI will call a function that will use *[Axios](https://www.npmjs.com/package/axios)* to initiate an ajax request to *[OMDB's API](https://www.npmjs.com/package/axios)* of movie information. Here's an example of what data LIRI shows the user: 
 
 ![movie](document-media/movie.png)
