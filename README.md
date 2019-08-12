@@ -3,10 +3,10 @@
 
 LIRI is a Language Interpretaion and Recognition Interface that runs exculsivly on the terminal through the use of node.js.
 <br>
-LIRI responds to very simple and user friendly requests and displays clear and concise data. 
+LIRI responds to very simple and user friendly requests through prompts from  *[inquirer](https://www.npmjs.com/package/inquirer)* and displays clear and concise data. 
 <br>
 Once the application is entered, the user can remain inside the 
-With LIRI, we can perform the following searches:
+With LIRI untill they chose to leave the application. Once inside the user can perform the following searches:
 
 * Movie Data
 
@@ -15,9 +15,9 @@ With LIRI, we can perform the following searches:
 * Song Info
 
 Additionally, we can read or erase all of our previous search queries 
-* *Deleting   requires an administrator password*
+###### *Deleting requires an administrator password*
 
->  ##### Please note: Orginally, LIRI used comand line prompts such as, "movie-this", "concert-this", and "spotify-this", but I choose to use Inquirer to create a more simple and enjoyable user experiance through prompts
+>  ##### Please note: Orginally, LIRI used comand line prompts such as, "movie-this", "concert-this", and "spotify-this", but I choose to use *[Inquirer](https://www.npmjs.com/package/inquirer)* to create a more simple and enjoyable user experiance through prompts
 
 ### Here is a video I've made to show LIRI in use: [DEMO VIDEO]()
 
@@ -26,7 +26,7 @@ Additionally, we can read or erase all of our previous search queries
 
 ## How LIRI works: 
 
-LIRI is constructed exclusivly using javaScript and is read through node.js. The code is broken down into multiple functions that each handle individual queries. The code first takes in the users selection and determains which function to call. In this case, its checking to see if the user is accesing OMDB, Bands in Town, or Spotify. Once LIRI has determained which function to run, it takes a user prompted input and uses that to initiate a search for that particular information, such as:  **Bon Iver**, or **The Lion King**. 
+LIRI is constructed exclusivly using javaScript and is read through node.js. The code is broken down into multiple functions that each handle individual queries. The code first takes in the users selection and determains which function to call. In this case, its checking to see if the user is accesing OMDB, Bands in Town, or Spotify. Once LIRI has determained which function to run, it takes a user prompted input and uses that to initiate a search for that particular information, such as:  **Bon Iver**, or **The Lion King**. LIRI is also run through prompts from *[inquirer](https://www.npmjs.com/package/inquirer)* in order to make a more streamline user experiance and cut down the amount of extraneous typing. 
 
 <br>
 
@@ -47,7 +47,8 @@ After executing a search, LIRI, will ask the user if they wish to perfomrm any a
 
 ![start](document-media/end.png)
 
-
+<br>
+<hr>
 
 ### **OMDB**
 
@@ -58,6 +59,7 @@ Selecting the "search movie info" command, LIRI will call a function that will u
 ##### *the user input under "Please enter search item" should be a movie title*
 
 <br>
+<hr>
 
 ### **BANDS IN TOWN**
 
@@ -69,6 +71,7 @@ Here is an example of the info givin by LIRI:
 ##### *the user input after "Please enter search item" should be a band or artist*
 
 <br>
+<hr>
 
 ### **SPOTIFY** 
 
@@ -84,8 +87,9 @@ If the song selected does not exist, LIRI will choose a song for you:
 ![spotifyErr](document-media/songErrExample.png)
 
 <br>
+<hr>
 
-### FILE ACCESS
+### **FILE ACCESS**
 
 If the user wants to access all previous search queries, this can be done by selecting the "read search histoy" option, which uses node.js's built in *[fs](https://nodejs.org/api/fs.html)* command to read the attached .txt file.
 
@@ -94,11 +98,6 @@ If the user wants to access all previous search queries, this can be done by sel
 If the user wished to clear all previous search's, this can be done by selecting the  *"delete search history"* option, which also uses node.js's *[fs](https://nodejs.org/api/fs.html)* command to clear all data in the .txt file. This prompt will require an administrator password and if entered will verify before deleting in order to avoid an unwatnted deletion. Here the user can press *"y"* to continue, or *"n"* to back out. 
 
 ![delet file](document-media/delete.png)
-
-
-
-
-*[inquirer](https://www.npmjs.com/package/inquirer)*
 
 
 
